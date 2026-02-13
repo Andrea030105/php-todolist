@@ -19,8 +19,38 @@
 
 <body>
     <div id="app">
-        {{ciao}}
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col text-center">
+                    <h1>ToDo List</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex justify-content-center mt-5">
+                        <div class="container-todo">
+                            <div class="p-4">
+                                <ul class="list-unstyled">
+                                    <li>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-12">
+                    <div class="d-flex justify-content-center mt-3">
+                        <input v-model="newTask" class="form-control w-50" type="text"
+                            placeholder="Inserici nuova todo">
+                        <button @click="addTask" class="mx-3 btn btn-primary">
+                            Inserici
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="./script.js"></script>
 </body>
 
 </html>
