@@ -27,20 +27,17 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="d-flex justify-content-center mt-5">
-                        <div class="container-todo">
-                            <div class="p-4">
-                                <ul class="list-unstyled">
-                                    <li>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="d-flex justify-content-center">
+                        <ul class="list-unstyled w-50 text-center">
+                            <li class="border border-primary p-2" v-for="item in toDoList">
+                                {{item.language}}
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class=" col-12">
                     <div class="d-flex justify-content-center mt-3">
-                        <input v-model="newTask" class="form-control w-50" type="text"
+                        <input @keyup.enter="addTask" v-model="newTask" class="form-control w-50" type="text"
                             placeholder="Inserici nuova todo">
                         <button @click="addTask" class="mx-3 btn btn-primary">
                             Inserici
