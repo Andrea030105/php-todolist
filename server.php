@@ -14,11 +14,17 @@ if (isset($_POST['language'])) {
 
     $array[] = $toDoItems; */
 
-    /* PASSO DIRETTAMENTE $POST ESSENDO UN OGGETTO MA BISOGNA FARE ATTENZIONE A DARE UN NOME(KEY) ALLE PROIETA' */
+    /* In PHP posso usare direttamente $_POST (è un array associativo), MA bisogna fare attenzione a dare un NOME (KEY) fisso alle proprietà. Se uso una chiave NUOVA/dinamica, devo uniformare la struttura ARRAY come nel metodo precedente, perché tutti gli oggetti devono avere la STESSA struttura.*/
 
     $array[] = $_POST;
 
-    file_put_contents('array.json', json_encode($array));
+    file_put_contents('array.json', json_encode($array, JSON_PRETTY_PRINT));
+}
+
+if (isset($_POST['element'])) {
+    unset($array[$_POST['element']]);
+
+    file_put_contents('array.json', json_encode($array, JSON_PRETTY_PRINT));
 }
 
 header('Content-Type: application/json');

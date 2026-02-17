@@ -14,6 +14,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -28,9 +29,14 @@
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-center">
-                        <ul class="list-unstyled w-50 text-center">
-                            <li class="border border-primary p-2" v-for="item in toDoList">
-                                {{item.language}}
+                        <ul class="list-unstyled w-25">
+                            <li class="border border-primary p-2 d-flex justify-content-between align-items-center" v-for="(item, index) in toDoList" :key="index">
+                                <span>
+                                    {{item.language}}
+                                </span>
+                                <button @click="deleteTask(index)" class="btn btn-danger">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
                             </li>
                         </ul>
                     </div>
@@ -43,6 +49,13 @@
                             Inserici
                         </button>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-danger text-center mt-3" v-if="errorMex != ''">
+                    <strong>
+                        {{errorMex}}
+                    </strong>
                 </div>
             </div>
         </div>
